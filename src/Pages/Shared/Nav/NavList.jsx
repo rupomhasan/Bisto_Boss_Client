@@ -5,6 +5,7 @@ const NavList = () => {
     <>
       <li>
         <NavLink
+          to="/"
           className={({ isActive }) => (isActive ? "text-yellow-500" : "")}
         >
           HOME
@@ -12,16 +13,18 @@ const NavList = () => {
       </li>
       <li>
         <NavLink
+          to="/menu"
           className={({ isActive }) => (isActive ? "text-yellow-500" : "")}
         >
-          CONTACT
+          Menu
         </NavLink>
       </li>
       <li>
         <NavLink
+          to="order"
           className={({ isActive }) => (isActive ? "text-yellow-500" : "")}
         >
-          DASHBOARD
+          Foods
         </NavLink>
       </li>
       <li>

@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import NavList from "./NavList";
 import { FaUserCircle } from "react-icons/fa";
-
+import { useContext } from "react";
+import { ThemeContext } from "../../../Context/ThemeContext";
+import { BiMoon } from "react-icons/bi";
+import { PiSun } from "react-icons/pi";
 const Navbar = () => {
+  const { lightMode, setDarkMode } = useContext(ThemeContext);
   return (
     <>
-      <div className="navbar fixed z-10 text-white max-w-screen-xl mx-auto bg-black bg-opacity-20  ">
+      <div className="navbar fixed top-0 z-10 text-white max-w-screen-xl mx-auto bg-black bg-opacity-20  ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -41,10 +45,17 @@ const Navbar = () => {
             <NavList />
           </ul>
         </div>
-        <div className="navbar-end gap-2 ">
+        <div className="navbar-end gap-2 space-x-4 ">
           <button className="text-xl font-bold ">SIGN OUT </button>
           <div>
             <FaUserCircle className="text-2xl" />
+          </div>
+          <div onClick={() => setDarkMode(!lightMode)}>
+            {lightMode ? (
+              <PiSun className="text-2xl" />
+            ) : (
+              <BiMoon className="text-2xl" />
+            )}
           </div>
         </div>
       </div>
